@@ -12,13 +12,39 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <style>
+        .active {
+            background: #3446cf;
+            border-right: solid 10px greenyellow;
+            color: white;
+        }
+
+        .sidebar a:hover {
+            background: #3446cf;
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            /* Warna teks aktif (putih) */
+        }
+
+        .nav-link.active i {
+            color: #ffffff !important;
+        }
+
+        .nav-link.active span {
+            color: #ffffff;
+            /* Warna span aktif (putih) */
+        }
+    </style>
 
 </head>
 
@@ -41,30 +67,44 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             @if (Auth::user()->role_id == 1)
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
+                <li class="nav-item">
+                    <a href="{{ route('dashboard') }}"
+                        class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
+                        <span>Dashboard</span>
+                    </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
+                <li class="nav-item">
+                    <a href="{{ route('buku') }}" class="nav-link {{ request()->is('buku') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Buku</span></a>
+                        <span>Buku</span>
+                    </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
+                <li class="nav-item">
+                    <a href="{{ route('kategori') }}" class="nav-link {{ request()->is('kategori') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Categori</span></a>
+                        <span>Kategori</span>
+                    </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
+                <li class="nav-item">
+                    <a href="{{ route('pengguna') }}" class="nav-link {{ request()->is('pengguna') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Pengguna</span></a>
+                        <span>Pengguna</span>
+                    </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
+
+                <li class="nav-item">
+                    <a href="{{ route('logPeminjaman') }}"
+                        class="nav-link {{ request()->is('logPeminjaman') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Logout</span></a>
+                        <span>Log Peminjaman</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" class="nav-link">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>logout</span>
+                    </a>
                 </li>
             @else
                 <li class="nav-item active">
@@ -209,70 +249,6 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy
-                                            with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle"
-                                            src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
-                                    Messages</a>
-                            </div>
-                        </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -280,30 +256,33 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="" data-toggle="modal"
-                                    data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+                                @if (Auth::user()->role_id == 1)
+                                    <a class="dropdown-item" href="" data-toggle="modal"
+                                        data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                @else
+                                    <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="" data-toggle="modal"
+                                        data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                @endif
+
                             </div>
                         </li>
 
@@ -313,7 +292,8 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="content">
+                <div>
+                    @yield('content')
 
                 </div>
                 <!-- /.container-fluid -->
@@ -322,7 +302,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class=" bg-white ">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2021</span>
@@ -377,10 +357,13 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+    <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
 </body>
 

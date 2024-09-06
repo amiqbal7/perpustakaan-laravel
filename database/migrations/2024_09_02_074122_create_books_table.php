@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('book_code', 100)->nullable()->default('text');
             $table->string('title');
+            $table->string('cover_image');
+            $table->string('writer_name');
             $table->string('status')->default('in stock');
             $table->timestamps();
         });
