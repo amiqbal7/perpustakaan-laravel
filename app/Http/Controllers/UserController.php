@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class PenggunaController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
         $users = User::orderByDesc('id')->paginate(10);
 
-        return view('frontend.pengguna', compact('users'));
+        return view('frontend.Users.index', compact('users'));
     }
 }

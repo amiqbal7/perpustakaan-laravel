@@ -75,13 +75,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('buku') }}" class="nav-link {{ request()->is('buku') ? 'active' : '' }}">
+                    <a href="{{ route('books.index') }}" class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Buku</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('kategori') }}" class="nav-link {{ request()->is('kategori') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.category.index') }}" class="nav-link {{ request()->is('kategori') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Kategori</span>
                     </a>
@@ -92,9 +92,15 @@
                         <span>Pengguna</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.bookLoan.index') }}" class="nav-link {{ request()->is('book-loan') ? 'active' : '' }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Peminjaman Buku</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('logPeminjaman') }}"
+                    <a href="{{ route('admin.log_loan.index') }}"
                         class="nav-link {{ request()->is('logPeminjaman') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Log Peminjaman</span>
@@ -107,15 +113,20 @@
                     </a>
                 </li>
             @else
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Profile</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
+                <li class="nav-item">
+                    <a href="{{ route('books.index') }}" class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Buku</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('bookLoanClient.index') }}" class="nav-link {{ request()->is('bookLoanClient.index') ? 'active' : '' }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Buku Dipinjam</span></a>
                 </li>
             @endif
 

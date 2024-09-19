@@ -13,6 +13,7 @@ class Book extends Model
         'book_code',
         'title',
         'cover_image',
-        'writer_name'
+        'author',
+        'category_id'
     ];
 }

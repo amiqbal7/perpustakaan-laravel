@@ -1,0 +1,48 @@
+@extends('layouts.mainLayout')
+
+@section('content')
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add New Book</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.bookLoan.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <!-- Select User -->
+                            <div class="mb-3">
+                                <label for="user_id" class="form-label">Choose User</label>
+                                <select name="user_id" id="user_id" class="form-control">
+                                    <option value="">Select User</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <!-- Select Book -->
+                            <div class="mb-3">
+                                <label for="book_id" class="form-label">Choose Book</label>
+                                <select name="book_id" id="book_id" class="form-control">
+                                    <option value="">Select Book</option>
+                                    @foreach ($books as $book)
+                                        <option value="{{ $book->id }}">{{ $book->book_code }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="mb-3 text-end">
+                                <button type="submit" class="btn btn-primary">Add Book</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

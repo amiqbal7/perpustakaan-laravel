@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('book_code', 100)->nullable()->default('text');
             $table->string('title');
             $table->string('cover_image');
-            $table->string('writer_name');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->string('author');
             $table->string('status')->default('in stock');
             $table->timestamps();
         });

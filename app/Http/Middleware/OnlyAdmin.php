@@ -17,7 +17,7 @@ class OnlyAdmin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->role_id != '1') {
-            return redirect('welcome');
+            return redirect('BukuDipinjam');
         }
         return $next($request);
     }
