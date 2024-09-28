@@ -26,8 +26,6 @@ Route::get('/welcome', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/books', [BookController::class, 'index'])->name('books.index');
     Route::get('/add/book/search', [BookController::class, 'search'])->name('admin.books.search');
-
-
 });
 
 Route::middleware(['auth', OnlyUser::class])->group(function () {
@@ -40,6 +38,8 @@ Route::middleware(['auth', OnlyUser::class])->group(function () {
 Route::middleware(['auth', OnlyAdmin::class])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/pengguna', [UserController::class, 'index'])->name('pengguna');
+    Route::get('/users/{user}/detail', [UserController::class, 'show'])->name('detail');
+
 
     // Route untuk Book
     Route::get('books/{id}/edit', [BookController::class, 'edit'])->name('admin.books.edit');

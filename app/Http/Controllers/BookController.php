@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBookRequest;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -16,8 +17,13 @@ class BookController extends Controller
     {
         $books = Book::orderByDesc('id')->paginate(5);
 
-        return view('frontend.book.index', compact('books'));
+        if (Auth::user() && Auth::user()->role_id == 1) {
+            return view('frontend.book.index', compact('books'));
+        } else {
+            return view('frontend.book.indexUser', compact('books'));
+        }
     }
+
 
     public function create()
     {

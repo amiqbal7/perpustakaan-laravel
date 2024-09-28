@@ -15,7 +15,7 @@ class BookLoanController extends Controller
     public function index()
     {
         $users = User::orderByDesc('id')->get(); // Ambil semua data pengguna
-        $books = Book::orderByDesc('id')->get(); // Ambil semua data pengguna
+        $books = Book::orderByDesc('id')->get(); // Ambil semua data buku
         return view('frontend.bookLoan.index', compact('users', 'books'));
     }
 
