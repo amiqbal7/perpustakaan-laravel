@@ -17,12 +17,25 @@ class LogLoanController extends Controller
      */
     public function index()
     {
-        // Fetch loan logs with relationships
-        $loan_logs = LoanLog::with(['users', 'books'])->orderByDesc('id')->paginate(5);
+        $loan_logs = LoanLog::with('users', 'books')->get();
 
-        // Return view with loan logs data
+        // Hitung denda untuk setiap log
+        foreach ($loan_logs as $log) {
+            $today = Carbon::now(); // Tanggal hari ini
+            $return_date = Carbon::parse($log->return_date); // Tanggal harus kembali
+
+            // Jika buku belum dikembalikan dan tanggal pengembalian sudah lewat
+            if (is_null($log->actual_return_date) && $today->greaterThan($return_date)) {
+                $late_days = $today->diffInDays($return_date); // Hitung selisih hari
+                $log->fine = $late_days * 2000; // Denda 2000 per hari keterlambatan
+            } else {
+                $log->fine = 0; // Tidak ada denda
+            }
+        }
+
         return view('frontend.loanLog.index', compact('loan_logs'));
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -57,6 +70,7 @@ class LogLoanController extends Controller
     public function update(Request $request, string $id)
     {
         //
+
     }
 
     /**

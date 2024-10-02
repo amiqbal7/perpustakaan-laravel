@@ -27,20 +27,24 @@
 
                             <!-- Writer Name -->
                             <div class="mb-3">
-                                <label for="author" class="form-label">Penulis</label>
+                                <label for="author" class="form-label">Author</label>
                                 <input type="text" class="form-control" id="author" name="author" required>
                             </div>
 
                             <!-- Cover Image -->
                             <div class="mb-3">
-                                <label for="cover_image" class="form-label">Gambar Sampul</label>
+                                <label for="cover_image" class="form-label">Cover Image</label>
                                 <input type="file" class="form-control" id="cover_image" name="cover_image"
                                     accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cover_image" class="form-label">Quantity</label>
+                                <input type="text" class="form-control" id="quantity" name="quantity" required>
                             </div>
 
                             <select name="category_id" id="category_id"
                                 class="py-3 rounded-lg pl-3 w-full border border-slate-300">
-                                <option value="">Choose city</option>
+                                <option value="">Choose Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach

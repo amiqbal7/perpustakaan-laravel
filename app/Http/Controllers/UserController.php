@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::orderByDesc('id')->paginate(10);
+        $users = User::where('role_id', 2)->orderByDesc('id')->paginate(10);
 
         return view('frontend.Users.index', compact('users'));
     }

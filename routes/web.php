@@ -10,6 +10,7 @@ use App\Http\Controllers\LogLoanController;
 use App\Http\Controllers\LogPeminjamanController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReturnBookController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\OnlyAdmin;
 use App\Http\Middleware\OnlyUser;
@@ -54,6 +55,8 @@ Route::middleware(['auth', OnlyAdmin::class])->group(function () {
 
 
     Route::get('/logPeminjaman', [LogLoanController::class, 'index'])->name('admin.log_loan.index');
+
+    Route::put('/loan_logs/{id}', [ReturnBookController::class, 'update'])->name('loan_logs.update');
 
 
 

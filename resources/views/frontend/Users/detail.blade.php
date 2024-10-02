@@ -20,7 +20,7 @@
                                 <th>Tanggal Harus Kembali</th>
                                 <th>Tanggal Kembali</th>
                                 <th>Denda</th>
-                                <th>Aksi</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -32,9 +32,19 @@
                                     <td>{{ $log->books->title }}</td>
                                     <td>{{ $log->loan_date }}</td>
                                     <td>{{ $log->return_date }}</td>
-                                    <td>{{ optional($log->actual_return_date)->format('Y-m-d') ?? 'Not returned yet' }}</td>
-                                    <td>Rp.3473848</td>
-                                    <td><button class="bg-success p-2 rounded-sm border-0 text-white">Dikembalikan</button></td>
+                                    <td>{{ $log->actual_return_date }}</td>
+                                    <td class="text-danger font-bold">Rp. {{ number_format($log->fine, 0, ',', '.') }}</td>
+                                    <td>
+                                        @if (is_null($log->actual_return_date))
+                                            {{-- Tombol untuk mengembalikan buku --}}
+                                            <button class="bg-danger p-2 rounded-sm border-0 text-white">Belum
+                                                Dikembalikan</button>
+                                        @else
+                                            {{-- Buku sudah dikembalikan, ubah tombol menjadi disable --}}
+                                            <button class="bg-secondary p-2 rounded-sm border-0 text-white" disabled>Sudah
+                                                Dikembalikan</button>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

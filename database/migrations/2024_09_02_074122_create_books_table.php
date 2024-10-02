@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('cover_image');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('author');
+            $table->string('quantity');
             $table->string('status')->default('in stock');
             $table->timestamps();
         });

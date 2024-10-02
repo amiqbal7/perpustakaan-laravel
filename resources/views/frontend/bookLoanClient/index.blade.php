@@ -27,7 +27,7 @@
                     <td>{{ $loan->return_date }}</td>
                     <td>
                         @if ($loan->actual_return_date)
-                            {{ $loan->actual_return_date->format('d M Y') }}
+                            {{ $loan->actual_return_date }}
                         @else
                             Belum Dikembalikan
                         @endif

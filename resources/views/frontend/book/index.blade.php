@@ -42,6 +42,7 @@
                     <th>Author</th>
                     <th>Book Code</th>
                     <th>Status</th>
+                    <th>Quantity</th>
                     @if (auth()->user()->role_id == 1)
                         <th>Action</th>
                     @endif
@@ -63,6 +64,7 @@
                                 {{ $book->status }}
                             </span>
                         </td>
+                        <td>{{ $book->quantity }}</td>
                         @if (auth()->user()->role_id == 1)
                             <td>
                                 <a href="{{ route('admin.books.edit', $book->id) }}" class="btn btn-warning">Edit</a>

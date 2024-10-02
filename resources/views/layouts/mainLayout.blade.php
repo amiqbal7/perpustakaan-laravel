@@ -58,11 +58,12 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <img class="" src="{{ asset('img/smk2.png') }}" alt="Image Description" width="40" height="50">
                 </div>
-                <div class="sidebar-brand-text mx-3">SMKN 2 Surakarta <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SMKN 2 Surakarta</div>
             </a>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -114,7 +115,7 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Profile</span></a>
                 </li>
@@ -166,7 +167,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
+                    {{-- <!-- Topbar Search -->
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -178,7 +179,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

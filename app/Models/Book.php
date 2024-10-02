@@ -14,6 +14,7 @@ class Book extends Model
         'title',
         'cover_image',
         'author',
-        'category_id'
+        'category_id',
+        'quantity'
     ];
 }

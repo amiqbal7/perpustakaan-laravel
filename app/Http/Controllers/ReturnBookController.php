@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use App\Models\LoanLog;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ReturnBookController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -68,9 +71,27 @@ class ReturnBookController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
-    }
+{
+    // Temukan data peminjaman buku berdasarkan ID
+    $loan_log = LoanLog::findOrFail($id);
+
+    // Perbarui tanggal pengembalian aktual dengan timestamp saat ini
+    $loan_log->actual_return_date = Carbon::now();
+
+    // Ambil data buku terkait
+    $book = Book::findOrFail($loan_log->book_id);
+
+    // Tambah jumlah buku sebanyak 1 karena buku sudah dikembalikan
+    $book->increment('quantity');
+
+    // Simpan pembaruan data peminjaman
+    $loan_log->save();
+
+    // Arahkan kembali dengan pesan sukses
+    return redirect()->back()->with('success', 'Buku berhasil dikembalikan dan stok diperbarui.');
+}
+
+
 
     /**
      * Remove the specified resource from storage.

@@ -25,6 +25,7 @@ class StoreBookRequest extends FormRequest
             'book_code' => ['required', 'string', 'max:255'],
             'title' => ['required', 'string', 'max:255'],
             'author' => ['required', 'string', 'max:255'],
+            'quantity' => ['required', 'string', 'max:255'],
             'category_id' => ['required', 'integer'],
             'cover_image' => ['sometimes', 'image', 'mimes:png,jpg,jpeg'],
 
