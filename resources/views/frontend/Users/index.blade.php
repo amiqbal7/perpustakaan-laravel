@@ -20,12 +20,12 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
+                                <th>Nama</th>
                                 <th>Phone</th>
-                                <th>Address</th>
+                                <th>Alamat</th>
                                 <th>Status</th>
                                 <th>Created_at</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
 

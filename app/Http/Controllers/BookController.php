@@ -33,15 +33,23 @@ class BookController extends Controller
 
     public function search(Request $request)
     {
+        // Ambil query pencarian dari input form
         $searchQuery = $request->input('search');
 
+        // Cari buku berdasarkan title atau author yang mengandung query pencarian
         $books = Book::where('title', 'LIKE', "%{$searchQuery}%")
             ->orWhere('author', 'LIKE', "%{$searchQuery}%")
             ->orderByDesc('id')
             ->paginate(5);
 
-        return view('frontend.book.index', compact('books', 'searchQuery'));
+         // Cek apakah role_id adalah 1
+        if (Auth::user() && Auth::user()->role_id == 1) {
+            return view('frontend.book.index', compact('books', 'searchQuery'));
+        } else {
+            return view('frontend.book.indexUser', compact('books', 'searchQuery'));
+        }
     }
+
 
     public function edit($id)
     {

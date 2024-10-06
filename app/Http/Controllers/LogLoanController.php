@@ -17,7 +17,10 @@ class LogLoanController extends Controller
      */
     public function index()
     {
-        $loan_logs = LoanLog::with('users', 'books')->get();
+        $loan_logs = LoanLog::with('users', 'books')
+            ->orderByRaw('actual_return_date IS NULL DESC') // Urutkan yang actual_return_date-nya null terlebih dahulu
+            ->paginate(5);
+
 
         // Hitung denda untuk setiap log
         foreach ($loan_logs as $log) {

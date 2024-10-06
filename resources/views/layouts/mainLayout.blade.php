@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Perpustakaan SMK 2 Surakarta</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -59,7 +59,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                    <img class="" src="{{ asset('img/smk2.png') }}" alt="Image Description" width="40" height="50">
+                    <img class="" src="{{ asset('img/smk2.png') }}" alt="Image Description" width="40"
+                        height="50">
                 </div>
                 <div class="sidebar-brand-text mx-3">SMKN 2 Surakarta</div>
             </a>
@@ -71,31 +72,35 @@
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}"
                         class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <i class="fas fa-solid fa-list"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('books.index') }}" class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <a href="{{ route('books.index') }}"
+                        class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
+                        <i class="fas fa-solid fa-book"></i>
                         <span>Buku</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('frontend.category.index') }}" class="nav-link {{ request()->is('kategori') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <a href="{{ route('frontend.category.index') }}"
+                        class="nav-link {{ request()->is('kategori') ? 'active' : '' }}">
+                        <i class="fas fa-solid fa-newspaper"></i>
                         <span>Kategori</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pengguna') }}" class="nav-link {{ request()->is('pengguna') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <a href="{{ route('pengguna') }}"
+                        class="nav-link {{ request()->is('pengguna') ? 'active' : '' }}">
+                        <i class="fas fa-solid fa-users"></i>
                         <span>Pengguna</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.bookLoan.index') }}" class="nav-link {{ request()->is('book-loan') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <a href="{{ route('admin.bookLoan.index') }}"
+                        class="nav-link {{ request()->is('book-loan') ? 'active' : '' }}">
+                        <i class="fas fa-solid fa-store"></i>
                         <span>Peminjaman Buku</span>
                     </a>
                 </li>
@@ -103,31 +108,28 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.log_loan.index') }}"
                         class="nav-link {{ request()->is('logPeminjaman') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <i class="fas fa-regular fa-clipboard"></i>
                         <span>Log Peminjaman</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>logout</span>
-                    </a>
-                </li>
             @else
+            <li class="nav-item">
+                <a href="{{ route('bookLoanClient.index') }}"
+                    class="nav-link {{ request()->is('bookLoanClient.index') ? 'active' : '' }}">
+                    <i class="fas fa-solid fa-list"></i>
+                    <span>Buku Dipinjam</span></a>
+            </li>
                 <li class="nav-item">
-                    <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
+                    <a href="{{ route('books.index') }}"
+                        class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
+                        <i class="fas fa-solid fa-book"></i>
+                        <span>Daftar Buku</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('profile.edit') }}"
+                        class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Profile</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('books.index') }}" class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Buku</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('bookLoanClient.index') }}" class="nav-link {{ request()->is('bookLoanClient.index') ? 'active' : '' }}">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Buku Dipinjam</span></a>
                 </li>
             @endif
 

@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1>Welcome to Dashboard</h1>
+        <h1 class="h3 mb-2 text-gray-800">Dashboard</h1> <!-- Page Heading -->
+        <p class="mb-4">Pada page ini berisi ringkasan data secara keseluruhan.</p>
         <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
