@@ -29,11 +29,11 @@
         }
     ],
     "env": {
-        "APP_NAME": "",
+        "APP_NAME": "perpustakaan-laravel",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "",
-        "APP_KEY": "",
+        "APP_URL": "perpustakaan-laravel-n3bo-git-main-amiqbal7s-projects.vercel.app",
+        "APP_KEY": "base64:dwYCIWT4daroJbhuJ/M/yJx3we2OaT7SeyeQpAzL0wM=",
         "VERCEL_DEMO_MODE": "true",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
