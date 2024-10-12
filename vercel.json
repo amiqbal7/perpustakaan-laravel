@@ -32,17 +32,18 @@
       "APP_NAME": "perpustakaan-laravel",
       "APP_ENV": "production",
       "APP_DEBUG": "false",
-      "APP_URL": "${VERCEL_URL}",
-      "APP_KEY": "${VERCEL_APP_KEY}",
+      "APP_URL": "https://perpustakaan-laravel-rri3.vercel.app",
+      "APP_KEY": "base64:dwYCIWT4daroJbhuJ/M/yJx3we2OaT7SeyeQpAzL0wM=",
       "DB_CONNECTION": "pgsql",
-      "DB_URL": "${SUPABASE_DB_URL}",
-      "DB_PASSWORD": "${SUPABASE_DB_PASSWORD}",
+      "DB_URL": "postgresql://postgres.ulqrqdjdsyouvolenmka:bolonperakE4@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres",
+      "DB_PASSWORD": "bolonperak",
       "CACHE_STORE": "database",
       "SESSION_DRIVER": "database",
       "QUEUE_CONNECTION": "database",
       "LOG_CHANNEL": "stack",
       "LOG_STACK": "single",
       "LOG_DEPRECATIONS_CHANNEL": null,
-      "LOG_LEVEL": "debug"
+      "LOG_LEVEL": "debug",
+      "SESSION_DOMAIN": ".vercel.app"
     }
   }
