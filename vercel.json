@@ -2,49 +2,47 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.6.1"
-        }
+      "api/index.php": {
+        "runtime": "vercel-php@0.6.1"
+      }
     },
     "routes": [
-        {
-            "src": "/(favicon\\.ico|robots\\.txt)",
-            "dest": "/public/build/$1"
-        },
-        {
-            "src": "/(css|js|images|fonts)/(.*)",
-            "dest": "/public/$1/$2"
-        },
-        {
-            "src": "/assets/(.*)",
-            "dest": "/public/assets/$1"
-        },
-        {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
+      {
+        "src": "/(favicon\\.ico|robots\\.txt)",
+        "dest": "/public/build/$1"
+      },
+      {
+        "src": "/(css|js|images|fonts)/(.*)",
+        "dest": "/public/$1/$2"
+      },
+      {
+        "src": "/assets/(.*)",
+        "dest": "/public/assets/$1"
+      },
+      {
+        "src": "/build/(.*)",
+        "dest": "/public/build/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+      }
     ],
     "env": {
-        "APP_NAME": "perpustakaan-laravel",
-        "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "APP_URL": "https://perpustakaan-ju9mraycp-amiqbal7s-projects.vercel.app",
-        "APP_KEY": "base64:dwYCIWT4daroJbhuJ/M/yJx3we2OaT7SeyeQpAzL0wM=",
-        "VERCEL_DEMO_MODE": "true",
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "array",
-        "VIEW_COMPILED_PATH": "/tmp/views",
-        "SSR_TEMP_PATH": "/tmp/ssr",
-        "NODE_PATH": "node"
+      "APP_NAME": "perpustakaan-laravel",
+      "APP_ENV": "production",
+      "APP_DEBUG": "false",
+      "APP_URL": "${VERCEL_URL}",
+      "APP_KEY": "${VERCEL_APP_KEY}",
+      "DB_CONNECTION": "pgsql",
+      "DB_URL": "${SUPABASE_DB_URL}",
+      "DB_PASSWORD": "${SUPABASE_DB_PASSWORD}",
+      "CACHE_STORE": "database",
+      "SESSION_DRIVER": "database",
+      "QUEUE_CONNECTION": "database",
+      "LOG_CHANNEL": "stack",
+      "LOG_STACK": "single",
+      "LOG_DEPRECATIONS_CHANNEL": null,
+      "LOG_LEVEL": "debug"
     }
-}
+  }
