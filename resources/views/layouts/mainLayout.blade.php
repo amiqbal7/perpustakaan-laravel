@@ -10,19 +10,8 @@
     <meta name="author" content="">
 
     <title>@yield('title', 'Default Title')</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-    @stack('head')
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
+    @yield('head')
     <style>
         .active {
             background: #3446cf;
@@ -94,8 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pengguna') }}"
-                        class="nav-link {{ request()->is('pengguna') ? 'active' : '' }}">
+                    <a href="{{ route('pengguna') }}" class="nav-link {{ request()->is('pengguna') ? 'active' : '' }}">
                         <i class="fas fa-solid fa-users"></i>
                         <span>Pengguna</span>
                     </a>
@@ -116,12 +104,12 @@
                     </a>
                 </li>
             @else
-            <li class="nav-item">
-                <a href="{{ route('bookLoanClient.index') }}"
-                    class="nav-link {{ request()->is('bookLoanClient.index') ? 'active' : '' }}">
-                    <i class="fas fa-solid fa-list"></i>
-                    <span>Buku Dipinjam</span></a>
-            </li>
+                <li class="nav-item">
+                    <a href="{{ route('bookLoanClient.index') }}"
+                        class="nav-link {{ request()->is('bookLoanClient.index') ? 'active' : '' }}">
+                        <i class="fas fa-solid fa-list"></i>
+                        <span>Buku Dipinjam</span></a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('books.index') }}"
                         class="nav-link {{ request()->is('books.index') ? 'active' : '' }}">
