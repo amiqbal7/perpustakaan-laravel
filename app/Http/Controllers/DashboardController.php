@@ -19,6 +19,6 @@ class DashboardController extends Controller
         $books = Book::orderByDesc('id')->get(); // Ambil semua data buku
         $totalBook = $books->count(); // Hitung jumlah
 
-        return view('frontend.dashboard', compact('users', 'totalBook', 'totalUser', 'totalCategory'));
+        return view('frontend.dashboard.index', compact('users', 'totalBook', 'totalUser', 'totalCategory'));
     }
 }
