@@ -1,19 +1,28 @@
+@section('title', 'Daftar Buku')
 
+@section('head')
 
-@extends('layouts.mainLayout')
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+@endsection
 
 @section('content')
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Books List</h1>
+    <h1 class="h3 mb-2 text-gray-800">Daftar Buku</h1>
     <p class="mb-4">Here is the list of books displayed in a table.</p>
 
     <!-- Add New Book Button and Search Form -->
     <div class="d-flex justify-content-between mb-4">
         @if (auth()->user()->role_id == 1)
             <!-- Add New Book Button -->
-            <a href="{{ route('admin.books.create') }}" class="btn btn-primary">Add New Book</a>
+            <a href="{{ route('admin.books.create') }}" class="btn btn-primary">Tambahkan Buku</a>
         @endif
 
         <!-- Search Form -->
@@ -38,14 +47,15 @@
                 <tr>
                     <th>No</th>
                     <th>Cover</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Book Code</th>
+                    <th>Judul</th>
+                    <th>Penulis</th>
+                    <th>Kode Buku</th>
                     <th>Status</th>
-                    <th>Quantity</th>
+                    <th>Jumlah</th>
                     @if (auth()->user()->role_id == 1)
-                        <th>Action</th>
+                        <th>Aksi</th>
                     @endif
+
                 </tr>
             </thead>
             <tbody>
